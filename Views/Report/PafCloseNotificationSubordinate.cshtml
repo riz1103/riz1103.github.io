@@ -1,0 +1,85 @@
+﻿@model IEnumerable<FscCore.Core.Domain.pms_MainKPI>
+@{
+    Layout = null;
+    string current = string.Empty;
+}
+<html>
+<body>
+    <div style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:1em;font-kerning:normal; font-size:small;">
+        <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:14px;">
+            Dear @Model.First().FirstName  @Model.First().LastName,
+        </p>
+
+
+        <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:14px;">
+            &nbsp;&nbsp;&nbsp;
+            Your Immediate Head has completely closed your Performance Appraisal Form. Please see details below as reference of the final rating.
+        </p>
+
+        <table>
+            <tr>
+                <td style="font-family: Verdana, sans-serif; font-size:11px; font-weight:bold;">PAF #:</td>
+                <td style="font-family: Verdana, sans-serif; font-size:11px;  ">@Model.First().PAFNumber</td>
+            </tr>
+            <tr>
+                <td style="font-family: Verdana, sans-serif; font-size:11px; font-weight:bold;">EmployeeId:</td>
+                <td style="font-family: Verdana, sans-serif; font-size:11px;  ">@Model.First().employeeId</td>
+            </tr>
+            <tr>
+                <td style="font-family: Verdana, sans-serif; font-size:11px; font-weight:bold;">Name:</td>
+                <td style="font-family: Verdana, sans-serif; font-size:11px;  ">@Model.First().FirstName  @Model.First().LastName</td>
+            </tr>
+            <tr>
+                <td style="font-family: Verdana, sans-serif; font-size:11px; font-weight:bold;">Period Covered:</td>
+                <td style="font-family: Verdana, sans-serif; font-size:11px;">@Model.First().PeriodFrom.ToShortDateString() to @Model.First().PeriodTo.ToShortDateString()</td>
+            </tr>
+            <tr>
+                <td style="font-family: Verdana, sans-serif; font-size:11px; font-weight:bold;">Date Appraisal:</td>
+                <td style="font-family: Verdana, sans-serif; font-size:11px;">@DateTime.Parse(Model.First().DateOfAppraisal.ToString()).ToShortDateString()</td>
+            </tr>
+            <tr>
+                <td style="font-family: Verdana, sans-serif; font-size:11px; font-weight:bold;">Date Next Appraisal:</td>
+                <td style="font-family: Verdana, sans-serif; font-size:11px;">@DateTime.Parse(Model.First().DateOfNextAppraisal.ToString()).ToShortDateString()</td>
+            </tr>
+        </table>
+        <p></p>
+
+    </div>
+    <table style="width:100%; border:1px thin black; border-collapse: collapse;">
+        <tr>
+            <th style="padding: 4px 2px; color: #FFFFFF;background: #0a94ef;border: solid White;text-align: center;font-size: 0.9em;border: thin solid #C0C0C0;font-weight: bold;">Description</th>
+            <th style="padding: 4px 2px; color: #FFFFFF;background: #0a94ef;border: solid White;text-align: center;font-size: 0.9em;border: thin solid #C0C0C0;font-weight: bold;">Weight</th>
+            <th style="padding: 4px 2px; color: #FFFFFF;background: #0a94ef;border: solid White;text-align: center;font-size: 0.9em;border: thin solid #C0C0C0;font-weight: bold;">Target</th>
+            <th style="padding: 4px 2px; color: #FFFFFF;background: #0a94ef;border: solid White;text-align: center;font-size: 0.9em;border: thin solid #C0C0C0;font-weight: bold;">Grade</th>
+
+        </tr>
+        @foreach (FscCore.Core.Domain.core_status item in ViewBag.kraGroup)
+        {
+            if (current != item.status_display)
+            {
+                current = item.status_display;
+
+                <tr style=" border:1px thin black;">
+                    <td style="padding: 5px;border: thin solid #C0C0C0;color: black;font-size: 0.9em; text-align:center; background-color:#7ebcf1" colspan="4">@Html.DisplayFor(modelItem => item.status_display)</td>
+                </tr>
+                foreach (var item2 in Model)
+                {
+                    if (item2.GroupDescription == item.status_display)
+                    {
+                        <tr style=" border:1px thin black;">
+                            <td style="padding: 5px;border: thin solid #C0C0C0;color: black;font-size: 0.9em;">@Html.DisplayFor(modelItem => item2.kpidescription)</td>
+                            <td style="padding: 5px;border: thin solid #C0C0C0;color: black;font-size: 0.9em;">@Html.DisplayFor(modelItem => item2.KPIWeight)</td>
+                            <td style="padding: 5px;border: thin solid #C0C0C0;color: black;font-size: 0.9em;">@Html.DisplayFor(modelItem => item2.kpitarget)</td>
+                            <td style="padding: 5px;border: thin solid #C0C0C0;color: black;font-size: 0.9em;">@Html.DisplayFor(modelItem => item2.KPIGrade)</td>
+                        </tr>
+                    }
+                }
+
+            }
+        }
+    </table>
+
+    <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:14px;">This is a system generated message; Please Don't Reply</p>
+
+</body>
+</html>

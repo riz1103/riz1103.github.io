@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dac7c011a5564f53ac74972d7b404feb" Name="Diagram1" >
+        <EntityTypeShape EntityType="HRISDBModel.V_hrisCourses" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="HRISDBModel.V_hrisSchools" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HRISDBModel.hrisbranch" Width="1.5" PointX="8.375" PointY="4.75" />
+        <EntityTypeShape EntityType="HRISDBModel.hrisDEPARTMENT" Width="1.5" PointX="8.375" PointY="9.75" />
+        <EntityTypeShape EntityType="HRISDBModel.hrisPOSITION" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HRISDBModel.hrisRELIGION" Width="1.5" PointX="10.375" PointY="4.75" />
+        <EntityTypeShape EntityType="HRISDBModel.V_hrisMRFMaster" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="HRISDBModel.V_hrisCorporate" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HRISDBModel.V_hrisBranch" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HRISDBModel.V_hrisDepartment" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="HRISDBModel.V_hrisPoisitions" Width="1.5" PointX="2.75" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
